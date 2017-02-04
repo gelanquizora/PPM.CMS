@@ -1,0 +1,32 @@
+@charset "utf-8";
+/* CSS Document */
+
+body
+{
+	margin:0px;
+	padding:0px;
+		width:1024px;
+	height:768px;
+}
+
+#Ipad
+{
+	display:block;
+	width:1290px;
+	height:872px;
+	background:url(../images/ipad.png) no-repeat top left;
+	margin:0px auto;
+	padding:52px 0px 0px 130px;
+}
+
+.IpadContent
+{
+	display:block;
+	width:1024px;
+	height:768px;
+/*	background:#FFF;*/
+	overflow:hidden;
+	position:fixed !important;
+position:absolute;
+	
+}

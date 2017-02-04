@@ -1,0 +1,36 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master/MasterPage.master" AutoEventWireup="true" CodeFile="Edit_Attendees.aspx.cs" Inherits="Master_Edit_Attendees" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+
+<table cellpadding='2' border='0'>
+<tr><td>AttendeeID:</td><td style='width:50px'><span style='color:white;'>*</span></td><td  style='width:100px'><asp:TextBox ID='txtAttendeeID' runat='server' MaxLength='10'  Width='50%'></asp:TextBox>
+</td><td><asp:RangeValidator ID='rvAttendeeID' runat='server' ControlToValidate='txtAttendeeID' ErrorMessage='Not Valid' MaximumValue='2147483647' MinimumValue='-2147483648' SetFocusOnError='True' Type='Integer'></asp:RangeValidator>
+</td><td><asp:RequiredFieldValidator ID='RfvAttendeeID' ControlToValidate='txtAttendeeID' ErrorMessage='AttendeeID is required.' Display='Dynamic' runat='server' />
+</td>
+</tr>
+<tr><td>AttendeeTitle:</td><td style='width:50px'><span style='color:white;'>*</span></td><td  style='width:100px'><asp:TextBox ID='txtAttendeeTitle' runat='server' MaxLength='50'  Width='80%'></asp:TextBox>
+</td><td></td>
+</tr>
+<tr><td>AttendeePage:</td><td style='width:50px'><span style='color:white;'>*</span></td><td  style='width:100px'><asp:TextBox ID='txtAttendeePage' runat='server' MaxLength='2147483647'  Width='80%'></asp:TextBox>
+</td><td></td>
+</tr>
+<tr><td>AttendeeFileName:</td><td style='width:50px'><span style='color:white;'>*</span></td><td  style='width:100px'><asp:TextBox ID='txtAttendeeFileName' runat='server' MaxLength='50'  Width='80%'></asp:TextBox>
+</td><td></td>
+</tr>
+<tr><td>CreatedBy:</td><td style='width:50px'><span style='color:white;'>*</span></td><td  style='width:100px'><asp:TextBox ID='txtCreatedBy' runat='server' MaxLength='50'  Width='80%'></asp:TextBox>
+</td><td></td>
+</tr>
+<tr><td>CreatedDate:</td><td style='width:50px'><span style='color:white;'>*</span></td><td  style='width:100px'><asp:Calendar ID='calCreatedDate' runat='server'></asp:Calendar>
+</td><td></td><td></td>
+</tr>
+<tr><td>ModifiedBy:</td><td style='width:50px'><span style='color:white;'>*</span></td><td  style='width:100px'><asp:TextBox ID='txtModifiedBy' runat='server' MaxLength='50'  Width='80%'></asp:TextBox>
+</td><td></td>
+</tr>
+<tr><td>ModifiedDate:</td><td style='width:50px'><span style='color:white;'>*</span></td><td  style='width:100px'><asp:Calendar ID='calModifiedDate' runat='server'></asp:Calendar>
+</td><td></td><td></td>
+</tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td><asp:Button ID='BtnUpdate' runat='server' Text='Save' onclick='BtnUpdate_Click' Width='64px' /></td><td><asp:Button ID='BtnCancel' runat='server' Text='Cancel' onclick='BtnCancel_Click' /></td><td></td></tr></table>
+</asp:Content>
+

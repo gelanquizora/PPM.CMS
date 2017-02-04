@@ -1,0 +1,191 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+using System.IO;
+using System.Web.Security;
+using System.Data;
+using System.Configuration;
+using System.Data.SqlClient;
+public partial class Master_PresentationPages : System.Web.UI.Page
+{
+    SqlConnection c = new SqlConnection(ConfigurationManager.ConnectionStrings["terrible1ConnectionString"].ToString());
+    int PresentationID = 0;
+    protected void Page_Load(object sender, EventArgs e)
+    {
+
+        //for cover
+        DataView dvSql = (DataView)dsCover.Select(DataSourceSelectArguments.Empty);
+        foreach (DataRowView drvSql in dvSql)
+        {
+
+            int cID = Convert.ToInt32(drvSql["CoverID"].ToString());
+            if ((cID == 0))
+            {
+                Content.Visible = true;
+                ViewContent.Visible = false;
+                ContentEdit.Visible = false;
+            }
+            else
+            {
+
+                Content.Visible = false;
+                ViewContent.Visible = true;
+                loadCover(cID);
+                ContentEdit.Visible = false;
+                HiddenFieldCoverID.Value = Convert.ToInt32 (cID).ToString();
+            }
+           
+        }
+        if (!IsPostBack)
+        {
+            SetDefaultView();
+            PresentationID = Convert.ToInt32(Request.QueryString.Get("PresentationID"));        
+
+        }
+
+    }
+    private void loadCover(int CoverID)
+    {       
+        Cover myCover;
+        myCover = clscover.getCover(CoverID);
+        DivContent.InnerHtml = HttpUtility.HtmlDecode(myCover.CoverPage.ToString());    
+               
+    }
+    private void SetDefaultView()
+    {
+        MultiView1.ActiveViewIndex = 0;
+    }
+
+    protected void lnkTab1_Click(object sender, EventArgs e)
+    {
+        MultiView1.ActiveViewIndex = 0;
+    }
+    protected void lnkTab2_Click(object sender, EventArgs e)
+    {
+        MultiView1.ActiveViewIndex = 1;
+    }
+    protected void lnkTab3_Click(object sender, EventArgs e)
+    {
+        MultiView1.ActiveViewIndex = 2;
+    }
+
+    protected void BtnSave_Click(object sender, System.EventArgs e)
+    {
+
+        //save Cover
+        PresentationID = Convert.ToInt32(Request.QueryString.Get("PresentationID"));
+
+        PreviewButton_Click(null, EventArgs.Empty);
+        string UserSignature = TextPreview.InnerHtml;
+
+        c.Open();
+        using (SqlCommand cmd = c.CreateCommand())
+        {
+            cmd.Parameters.Clear();
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "sp_InsertCover";
+            cmd.Parameters.Add("@CoverPage", SqlDbType.NVarChar).Value = System.Convert.ToString(UserSignature);
+            cmd.Parameters.Add("@PresentationID", SqlDbType.Int).Value = PresentationID;
+            cmd.ExecuteNonQuery();
+        }
+        c.Close();
+
+
+        //create cover file
+        string pathToCreate = "~/CoverPages/" + PresentationID;
+        Directory.CreateDirectory(Server.MapPath(pathToCreate));
+
+        FileInfo f = new FileInfo(Server.MapPath(pathToCreate) + "1.html");
+        TextWriter tw = f.CreateText();
+        tw.Write(string.Format("<head><title></title></head><body >{0}</body></html>", UserSignature));
+        tw.Close();
+
+
+        Response.Redirect("PresentationGridMaster.aspx", false);
+    }
+
+    protected void BtnCancel_Click(object sender, System.EventArgs e)
+    {
+        Response.Redirect("PresentationGridMaster.aspx", false);
+    }
+    protected void PreviewButton_Click(object sender, EventArgs e)
+    {
+        switch (Selections.SelectedValue)
+        {
+            case "Formatted":
+                TextPreview.InnerHtml = Editor.Text;
+                break;
+            case "Html":
+                TextPreview.InnerText = Editor.Text;
+                break;
+            default:
+                break;
+        }
+    }
+    protected void ClearButton_Click(object sender, EventArgs e)
+    {
+        Editor.Text = String.Empty;
+    }
+    
+    //for edit
+    protected void ClearButtonEdit_Click(object sender, EventArgs e)
+    {
+        Editor.Text = String.Empty;
+    }
+    protected void PreviewButtonEdit_Click(object sender, EventArgs e)
+    {
+        switch (Selections.SelectedValue)
+        {
+            case "Formatted":
+                TextPreviewEdit.InnerHtml = Editor.Text;
+                break;
+            case "Html":
+                TextPreviewEdit.InnerText = Editor.Text;
+                break;
+            default:
+                break;
+        }
+    }
+    protected void BtnUpdateEdit_Click(object sender, System.EventArgs e)
+    {
+        //Cover myCover;
+        //myCover = new Cover();
+        //myCover.CoverID = System.Convert.ToInt32(txtCoverID.Text);
+        //myCover.CoverTitle = System.Convert.ToString(txtCoverTitle.Text);
+        //myCover.CoverPage = System.Convert.ToString(txtCoverPage.Text);
+        //myCover.CoverFileName = System.Convert.ToString(txtCoverFileName.Text);
+        //myCover.CreatedBy = System.Convert.ToString(txtCreatedBy.Text);
+        //myCover.CreatedDate = System.Convert.ToDateTime(calCreatedDate.SelectedDate);
+        //myCover.ModifiedBy = System.Convert.ToString(txtModifiedBy.Text);
+        //myCover.ModifiedDate = System.Convert.ToDateTime(calModifiedDate.SelectedDate);
+        //clscover.Update(myCover);
+        //Response.Redirect("CoverGrid.aspx", false);
+    }
+    protected void BtnCancelEdit_Click(object sender, System.EventArgs e)
+    {
+        Response.Redirect("PresentationGridMaster.aspx", false);
+    }
+    protected void btnEditCover_Click(object sender, EventArgs e)
+    {
+        ContentEdit.Visible = true;
+        ViewContent.Visible = false;
+        Content.Visible = false;
+        EditCover(Convert.ToInt32(HiddenFieldCoverID.Value));
+    }
+
+    private void EditCover(int CoverID)
+    {
+
+        Cover myCover;
+        myCover = clscover.getCover(CoverID);
+
+
+        EditorEdit.Text = HttpUtility.HtmlDecode(myCover.CoverPage.ToString());
+
+
+    }
+}

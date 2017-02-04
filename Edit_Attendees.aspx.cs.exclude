@@ -1,0 +1,56 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+public partial class Master_Edit_Attendees : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, System.EventArgs e)
+    {
+        if (IsPostBack)
+        {
+            // If condition is true, execute these statements.
+        }
+        else
+        {
+            this.loadAttendees();
+        }
+    }
+
+    private void loadAttendees()
+    {
+        Attendees myAttendees;
+        myAttendees = clsattendees.getAttendees();
+        txtAttendeeID.Text = myAttendees.AttendeeID.ToString();
+        txtAttendeeTitle.Text = myAttendees.AttendeeTitle.ToString();
+        txtAttendeePage.Text = myAttendees.AttendeePage.ToString();
+        txtAttendeeFileName.Text = myAttendees.AttendeeFileName.ToString();
+        txtCreatedBy.Text = myAttendees.CreatedBy.ToString();
+        //calCreatedDate.SelectedDate = myAttendees.CreatedDate;
+        //txtModifiedBy.Text = myAttendees.ModifiedBy.ToString();
+        //calModifiedDate.SelectedDate = myAttendees.ModifiedDate;
+    }
+   
+    protected void BtnUpdate_Click(object sender, System.EventArgs e)
+    {
+        Attendees myAttendees;
+        myAttendees = new Attendees();
+        myAttendees.AttendeeID = System.Convert.ToInt32(txtAttendeeID.Text);
+        myAttendees.AttendeeTitle = System.Convert.ToString(txtAttendeeTitle.Text);
+        myAttendees.AttendeePage = System.Convert.ToString(txtAttendeePage.Text);
+        myAttendees.AttendeeFileName = System.Convert.ToString(txtAttendeeFileName.Text);
+        myAttendees.CreatedBy = System.Convert.ToString(txtCreatedBy.Text);
+        myAttendees.CreatedDate = System.Convert.ToDateTime(calCreatedDate.SelectedDate);
+        myAttendees.ModifiedBy = System.Convert.ToString(txtModifiedBy.Text);
+        myAttendees.ModifiedDate = System.Convert.ToDateTime(calModifiedDate.SelectedDate);
+        clsattendees.Update(myAttendees);
+        Response.Redirect("AttendeesGrid.aspx", false);
+    }
+
+    protected void BtnCancel_Click(object sender, System.EventArgs e)
+    {
+        Response.Redirect("AttendeesGrid.aspx", false);
+    }
+}

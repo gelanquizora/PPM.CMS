@@ -1,0 +1,148 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Blank.master.cs" Inherits="Master_Blank" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+ <html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico">
+    
+<!--Stylesheets-->
+
+    <style type="text/css">
+        table, td, tr
+        {
+            border:none;
+            margin:0;
+            padding:0;
+            font-family:Helvetica, Arial, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	font-size: 12px;
+	vertical-align:top;
+        }
+.button_small, a.button_small {
+    cursor: pointer;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    line-height: 16px;
+    padding: 4px 16px 4px;
+	border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px;
+	margin-left:5px;
+	text-decoration:none;
+	font-size:11px;
+	display:inline-block;
+
+}
+.button_small:hover, a.button_small:hover{
+background-position:bottom;
+}
+.button_small:active, a.button_small:active{
+background-position:center;
+}
+.greyishBtn {
+    background: url(./images/button/greishBtn.png) repeat-x scroll 0 0 transparent;
+    border: 1px solid #4F5A68;
+    color: #FFFFFF;
+    z-index:999;
+}
+.whitishBtn {
+    background: url(./images/button/whiteBtn.png) repeat-x scroll 0 0 transparent;
+    border: 1px solid #cccccc;
+    color: #555555;
+	text-shadow: 0 1px 0 #FFFFFF;
+	box-shadow: 0 1px 0 0 #FFFFFF;
+	-webkit-box-shadow:0 1px 0 0 #FFFFFF;
+}
+.bluishBtn {
+    background: url(./images/button/bluishBtn.png) repeat-x scroll 0 0 transparent;
+    border: 1px solid #3079ed;
+    color: #FFFFFF;
+}
+.redishBtn {
+    background: url(./images/button/redishBtn.png) repeat-x scroll 0 0 transparent;
+    border: 1px solid #d22a15;
+    color: #FFFFFF;
+}
+.greenishBtn {
+    background: url(./images/button/greenishBtn.png) repeat-x scroll 0 0 transparent;
+    border: 1px solid #4ba301;
+    color: #FFFFFF;
+}
+.magentaBtn {
+    background: url(./images/button/magentaBtn.png) repeat-x scroll 0 0 transparent;
+    border: 1px solid #ba4c6f;
+    color: #FFFFFF;
+}
+.yellowBtn {
+    background: url(./images/button/yellow_btn.png) repeat-x scroll 0 0 transparent;
+    border: 1px solid #d5ad23;
+    color: #FFFFFF;
+}
+.dblueBtn {
+    background: url(./images/button/dark_blue_btn.png) repeat-x scroll 0 0 transparent;
+    border: 1px solid #41597c;
+    color: #FFFFFF;
+}
+
+.preview
+{
+    padding:10px;
+}
+/*Actionbar*/
+.action_bar{
+	background:#f2f0f0;
+	padding:8px;
+	border-top:solid 1px #e3e3e3;
+}
+.action_bar	.button_small{
+	margin-right:5px;
+}
+/*File Uploader*/
+.file_uploader{
+	padding:15px 25px;
+	min-height:250px;
+	width:500px;
+	border:1px solid #dedede;
+}
+.uplaoder_label
+{
+    width:75px;
+    display:block;
+}
+
+    </style>
+    <asp:ContentPlaceHolder id="head" runat="server">
+     <script type="text/javascript" src="./js/jquery.min.js"> </script>
+     
+    </asp:ContentPlaceHolder>
+ </head> 
+ <body> 
+    <form id="form1" runat="server">
+    <header>
+            <!--Logo-->
+            <div id="logo"><a href="#">   <asp:Image ID="imgCompanyLogo" runat="server"  /></a></div>
+           
+        </header>
+    <div>
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:terrible1ConnectionString %>"
+                            SelectCommand="sp_SelectUserRoleByUserName" 
+                ProviderName="System.Data.SqlClient" SelectCommandType="StoredProcedure">
+                 <SelectParameters>
+                     <asp:SessionParameter Name="UserName" SessionField="UserName" Type="String" />
+                 </SelectParameters>
+            </asp:SqlDataSource>
+             <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:terrible1ConnectionString %>"
+                            SelectCommand="sp_SelectCompanyByUserName" 
+                ProviderName="System.Data.SqlClient" SelectCommandType="StoredProcedure">
+                 <SelectParameters>
+                     <asp:SessionParameter Name="UserName" SessionField="UserName" Type="String" />
+                 </SelectParameters>
+            </asp:SqlDataSource>
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+ </body> 
+</html>

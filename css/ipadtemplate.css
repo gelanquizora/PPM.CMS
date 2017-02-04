@@ -1,0 +1,42 @@
+@charset "utf-8";
+/* CSS Document */
+
+body
+{
+	margin:0px;
+	padding:10px;
+		width:1024px;
+	height:768px;
+}
+.DivToScroll{   
+ 
+    padding: 10px 7px 5px;
+}
+
+.DivWithScroll{
+    height:768px;
+    overflow:scroll;
+ 
+}
+
+#Ipad
+{
+	display:block;
+	width:1290px;
+	height:872px;
+	background:url(../images/ipad.png) no-repeat top left;
+	margin:0px auto;
+	padding:52px 0px 0px 130px;
+}
+
+.IpadContent
+{
+	display:block;
+	width:1024px;
+	height:768px;
+/*	background:#FFF;*/
+	overflow:hidden;
+	/*position:fixed !important;
+position:absolute;*/
+	
+}

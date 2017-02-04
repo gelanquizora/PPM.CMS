@@ -1,0 +1,576 @@
+@charset "UTF-8";
+/* CSS Document */
+@import url(http://weloveiconfonts.com/api/?family=fontawesome|entypo|iconicfill|maki);
+
+@font-face {
+    font-family: 'arvoregular';
+    src: url('../fonts/arvo-regular-webfont.eot');
+    src: url('../fonts/arvo-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/arvo-regular-webfont.woff') format('woff'),
+         url('../fonts/arvo-regular-webfont.ttf') format('truetype'),
+         url('../fonts/arvo-regular-webfont.svg#arvoregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'arvobold';
+    src: url('../fonts/arvo-bold-webfont.eot');
+    src: url('../fonts/arvo-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/arvo-bold-webfont.woff') format('woff'),
+         url('../fonts/arvo-bold-webfont.ttf') format('truetype'),
+         url('../fonts/arvo-bold-webfont.svg#arvobold') format('svg');
+    font-weight: bold;
+    font-style: bold;
+
+}
+
+@font-face {
+    font-family: 'arvobold_italic';
+    src: url('../fonts/arvo-bolditalic-webfont.eot');
+    src: url('../fonts/arvo-bolditalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/arvo-bolditalic-webfont.woff') format('woff'),
+         url('../fonts/arvo-bolditalic-webfont.ttf') format('truetype'),
+         url('../fonts/arvo-bolditalic-webfont.svg#arvobold_italic') format('svg');
+    font-weight: bold;
+    font-style: italic;
+
+}
+
+@font-face {
+    font-family: 'arvoitalic';
+    src: url('../fonts/arvo-italic-webfont.eot');
+    src: url('../fonts/arvo-italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/arvo-italic-webfont.woff') format('woff'),
+         url('../fonts/arvo-italic-webfont.ttf') format('truetype'),
+         url('../fonts/arvo-italic-webfont.svg#arvoitalic') format('svg');
+    font-weight: normal;
+    font-style: italic;
+
+}
+[class*="fontawesome-"]:before {
+  font-family: 'FontAwesome', sans-serif;
+}
+/* entypo */
+[class*="entypo-"]:before {
+  font-family: 'entypo', sans-serif;
+}
+/* iconicfill */
+[class*="iconicfill-"]:before {
+  font-family: 'IconicFill', sans-serif;
+}
+/* maki */
+[class*="maki-"]:before {
+  font-family: 'maki', sans-serif;
+}
+/*-------------*/
+
+#login-container{
+	width:839px;
+	height:768px;
+	margin:0 auto;
+	background:url(../images/bg_logo.png) 0 0 no-repeat;
+	padding:290px 0;
+}
+#login-container > .frm-container{
+	width:315px;
+	height:206px;
+	margin:0 auto;
+	background:#90bcbb;
+	padding:15px;
+}
+#login-container > .frm-container p, #login-container > .frm-container p a{
+	line-height:2.8em; font-size:.9em; color:#fff;
+}
+#login-container > .frm-container p a:hover{
+	color:#db213d;
+}
+#canvas-wrap, #canvas-wrap:after{
+	width:100%;
+	clear:both;
+}
+.logo-container{
+	width:160px;
+	height:44px;
+	display:block;
+	line-height:44px;
+}
+
+.main-nav{
+	list-style-type:none;
+	height:auto;
+	display:block;
+	width:550px;
+	margin:0 !important;
+	float:left !important;
+	position:relative;
+}
+.main-nav li a{
+	float:left;
+	line-height:44px;
+	width:120px;
+	text-align:center;
+	display:block;
+	border-right:1px solid #ee7f6a;
+}
+/*.main-nav li:first-child{
+	border-right:1px solid #ee7f6a;
+	margin-top:-2px;
+}*/
+/*nav li a:first-child{
+	
+	display:block;
+}*/
+.main-nav li a:last-child{
+	margin:0;
+}
+.main-nav li.home a{
+	color:#fff !important;
+	font-family: 'arvoregular';
+	font-size:13px !important;
+	position:absolute;
+	top:0px;
+	left:0;
+	width:120px;
+}
+.main-nav li.home a:hover, li.home a:focus, li.home a:active, .main-nav li.home a.selected{
+	position:absolute;
+	top:-3px;
+	left:0;
+	height:51px;
+	width:120px;
+	background:#f9a695 !important;
+}
+.main-nav li.clients a{
+	color:#fff !important;
+	font-family: 'arvoregular';
+	font-size:13px !important;
+	position:absolute;
+	top:0px;
+	left:121px;
+	width:120px;
+}
+.main-nav li.clients a:hover, .main-nav li.clients a:focus, .main-nav li.clients a:active, .main-nav li.clients a.selected{
+	position:absolute;
+	top:-3px;
+	left:121px;
+	height:51px;
+	width:120px;
+	background:#f9a695 !important;
+}
+.main-nav li.projects a{
+	color:#fff !important;
+	font-family: 'arvoregular';
+	font-size:13px !important;
+	position:absolute;
+	top:-0px;
+	left:241px;
+	width:120px;
+}
+.main-nav li.projects a:hover, .main-nav li.projects a:focus, .main-nav li.projects a:active, .main-nav li.projects a.selected{
+	position:absolute;
+	top:-3px;
+	left:241px;
+	height:51px;
+	width:120px;
+	background:#f9a695 !important;
+}
+.top-account{
+	display:block;
+	width:17%;
+	float:right;
+}
+.top-account ul{
+	margin:0;
+	padding:0;
+	list-style-type:none;
+	height:44px;
+}
+.top-account ul li{
+	width:115px !important;
+	border-right:1px solid #ee7f6a !important;
+}
+.top-account ul li:first-child{
+	border-left:1px solid #ee7f6a;
+}
+
+.top-account ul li.uname a{
+	color:#fff;
+	font-size:.8em;
+	line-height:.7;
+	border:none;
+	display:inline-block;
+	width:90px;
+	text-align:left;
+}
+.top-account ul li.uname a:hover{
+	color:#fd2a01;
+}
+/*ICONS STYLE*/
+.icon-top a{
+	font-size:.8em;
+	color:#fff;
+	margin-right:3px;
+}
+.icon-top a:hover{
+	font-size:.8em;
+	color:inherit;
+}
+.icon-actions{
+	font-size:1.3em;
+	/*color:#fff;*/
+	margin-right:10px;
+}
+.icon-box{
+	font-size:.8em !important;
+	color:#fff !important;
+	display: block;
+    margin: 3px 4px 0 0 !important;
+}
+.icon-box-name{
+	font-size:.8em !important;
+	color:#222222 !important;
+	display: block;
+	font-size: 1em !important;
+    margin: 0 4px 0 0 !important;
+}
+/*END ICONS STYLE*/
+
+.top-account ul li.logout a{
+	color:#fff;
+	font-size:.8em;
+	line-height:.7em;
+	border:none;
+}
+.top-account ul li.logout a:hover{
+	color:#fd2a01;
+}
+/*Side Bar*/
+.side-bar{
+	width:160px;
+	height:660px;
+	display:block;
+	background:#444e50;
+	float:left;
+	padding:3px;
+}
+.side-bar > ul{
+	list-style-type:none;
+	margin:35px 0 0 0;
+	padding:0;
+}
+.side-bar > ul li{
+	display:block !important;
+	width:76px !important;
+	height:76px !important;
+	float:left;
+}
+.side-bar > ul li.odd-box a{
+	background:#e9755c;
+	margin-right:3px;
+	margin-left:0px;
+	display:block;
+	-webkit-transition: background-color 300ms ease-out;
+	-moz-transition: background-color 300ms ease-out;
+	transition: background-color 300ms ease-out;
+}
+.side-bar > ul li.odd-box a:hover{
+	background:#f7a492;
+}
+.side-bar > ul li.blue-box a{
+	background:#6c8eaa;
+	margin-right:3px;
+	margin-left:0px;
+	display:block;
+	-webkit-transition: background-color 300ms ease-out;
+	-moz-transition: background-color 300ms ease-out;
+	transition: background-color 300ms ease-out;
+}
+.side-bar > ul li.blue-box a:hover{
+	background:#9dc0da;
+}
+.side-bar > ul li.lightblue-box a{
+	background:#9dc0da;
+	margin:0;
+	display:block;
+	-webkit-transition: background-color 300ms ease-out;
+	-moz-transition: background-color 300ms ease-out;
+	transition: background-color 300ms ease-out;
+}
+.side-bar > ul li.lightblue-box a:hover{
+	background:#6c8eaa;
+}
+.side-bar > ul li.lightred-box a{
+	background:#e28081;
+	margin-right:3px;
+	margin-left:0px;
+	display:block;
+	-webkit-transition: background-color 300ms ease-out;
+	-moz-transition: background-color 300ms ease-out;
+	transition: background-color 300ms ease-out;
+}
+.side-bar > ul li.lightred-box a:hover{
+	background:#da5e5e;
+}
+.side-bar > ul li.red-box a{
+	background:#da5e5e;
+	margin:0;
+	display:block;
+	-webkit-transition: background-color 300ms ease-out;
+	-moz-transition: background-color 300ms ease-out;
+	transition: background-color 300ms ease-out;
+}
+.side-bar > ul li.red-box a:hover{
+	background:#e28081;
+}
+.box-inside{
+	height:57px;
+	display:block;
+	text-align:center;
+	vertical-align:middle;
+}
+.box-title{
+	background:#fff;
+	color:#d66d58;
+	text-align:center;
+	font-family:inherit;
+	font-size:.6em;
+	line-height:1.8em;
+	text-transform:uppercase
+}
+.side-bar > ul li.even-box a{
+	background:#f7a492;
+	display:block;
+	-webkit-transition: background-color 300ms ease-out;
+	-moz-transition: background-color 300ms ease-out;
+	transition: background-color 300ms ease-out;
+}
+.side-bar > ul li.even-box a:hover{
+	background:#e9755c;
+}
+.icon-side-bar{
+	color:#fff;
+	font-size:1.8em;
+	line-height:1.9em;
+}
+/*End Side Bar*/
+.main-columns{
+	width:95%;
+	display:block;
+	margin:0 auto;
+	padding:40px 0 0 0;
+}
+.container{
+	background:#fff;
+}
+.container > .top-title{
+	height:36px;
+	background:#bdc2ca;
+	padding:5px;
+	margin-bottom:5px;
+	text-align:center;
+}
+.container > .top-title h6{
+	color:#fff !important;
+	text-transform:uppercase;
+	width:93%;
+}
+.container > .content-container{
+	padding:20px;
+}
+.table-container{
+	margin:0;
+	padding:0;
+	display:block
+}
+.slider-container{
+	width:100%;
+	height:auto;
+	margin:0;
+	display:block;
+}
+
+/*PROJECT SORT*/
+ul.filter_project{
+	background:#d3d3d3;
+	border-top:solid 1px #f6f6f6;
+}
+ul.filter_project li{
+	padding:8px 15px;
+	display:inline-block;
+	list-style:none;
+}
+ul.filter_project li a{
+	color:#6c6c6c;
+	text-decoration:none;
+	font-weight:bold;
+	text-shadow: 0px 1px 0px  #fff;
+}
+ul.filter_project li span.count{
+	line-height:100%;
+	color:#fff;
+	text-shadow: 0px 1px 0px  #353535;
+	padding:2px 2px 2px;
+	background:#707070;
+	border-radius:2px;
+	margin-left:8px;
+	min-width:16px;
+	text-align:center;
+	display:inline-block;
+	box-shadow:0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow:0px 1px 0px 0px #ffffff;
+}
+ul.filter_project li.selected{
+	background:#ffffff;
+	box-shadow:inset 0px 10px 8px #eaeaea;
+	-webkit-box-shadow:inset 0px 10px 8px #eaeaea;
+	border:solid 1px #fff;
+	border-width:0px 1px;
+}
+ul.filter_project li.selected a{
+	color:#4a4a4a;
+}
+ul.filter_project li.selected span.count{
+	background:#4a4a4a;
+}
+.project_sort ul.project_list{
+	margin:0px;
+	padding:18px 0px 0px 18px;
+}
+.project_sort ul.project_list li{
+	padding:10px !important;
+	width:95px;
+	height:80px;
+	position:relative;
+	border:solid 1px #c4c4c4;
+	border-radius:3px;
+	list-style:none;
+	display:inline-block;
+	margin-right:16px;
+	margin-bottom:16px;
+	background:url(../images/project_bg.png) repeat-x bottom center #ededed;
+}
+.project_sort ul.project_list .project_badge{
+	width:36px;
+	height:36px;
+	position:absolute;
+	right:-1px;
+	top:-1px;
+	background:url(../images/project_badge.png) no-repeat center;
+	color:#fff;
+	font-size:19px; 
+	text-align:right;
+	line-height:17px;
+}
+.project_sort ul.project_list .project_badge.red{
+	background-position:-148px 0px;
+}
+.project_sort ul.project_list .project_badge.blue{
+	background-position:-299px 0px;
+}
+.project_sort ul.project_list .project_badge.grey{
+	background-position:-1px 0px;
+}
+.project_sort ul.project_list a.project_title{
+	font-size:12px;
+	color:#222222;
+	text-shadow: 0px 1px 0px  #fff;
+	display:inline-block; 
+	line-height:18px;
+	font-family: inherit;
+	text-decoration:none;
+}
+.project_sort ul.project_list a.assigned_user{
+	font-size:12px;
+	color:#6c6c6c;
+	text-shadow: 0px 1px 0px  #fff;
+	position:absolute;
+	bottom:11px;
+	left:10px;
+	text-decoration:none;
+}
+.project_sort ul.project_list a.assigned_user span{
+	font-size:19px;
+	float:left;
+	margin-top:-7px;
+	margin-right:2px;
+}
+/*RIGHT COLUMN*/
+.right-column{
+	width:84%;
+	display:block;
+}
+/*END OF RIGHT COLUMN*/
+
+/*CAROUSEL*/
+/*#carousel1 .cj-carousel-root-wrapper.cj-default {
+    width: 720px;
+    height: 200px;
+}*/
+#carousel {
+        width:100%;
+        border:1px solid #222;
+        height:300px;
+        position:relative;
+        clear:both;
+        overflow:hidden;
+        background:#FFF;
+      }
+	  #carousel img span {
+		  position:absolute;
+		  bottom:0;
+		  left:0;
+		  width:100%;
+	  }
+      #carousel img {
+        visibility:hidden; /* hide images until carousel can handle them */
+        cursor:pointer; /* otherwise it's not as obvious items can be clicked */
+		border:1px solid #000;
+      }
+/* Basic jCoverflip CSS */
+      .ui-jcoverflip {
+        position: relative;
+      }
+      
+      .ui-jcoverflip--item {
+        position: absolute;
+        display: block;
+      }
+      
+      
+      /* Basic sample CSS */
+      #flip {
+        height: 200px;
+        width: 630px;
+        margin-bottom: 50px;
+      }
+      
+      #flip .ui-jcoverflip--title {
+        position: absolute;
+        bottom: -30px;
+        width: 100%;
+        text-align: center;
+        color: #555;
+      }
+      
+      #flip img {
+        display: block;
+        border: 0;
+        outline: none;
+      }
+      
+      #flip a {
+        outline: none;
+      }
+
+
+footer{
+	height:29px;
+	bottom:0;
+	left:0;
+	right:0;
+	position:fixed;
+	background:url(../images/footer-logo.png) right 0 no-repeat;
+
+}

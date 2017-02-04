@@ -1,0 +1,12 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="SiteBlank.master.cs" Inherits="Master_SiteBlank" %>
+
+ 
+    <form id="form1" runat="server">
+   
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+ 
+    </form>
+ 
+ 

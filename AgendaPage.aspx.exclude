@@ -1,0 +1,3 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/template.master" AutoEventWireup="true" CodeFile="AgendaPage.aspx.cs" Inherits="AgendaPage" %>
+
+<%-- Add content controls here --%>
